@@ -15,9 +15,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 with app.app_context():
-    db.create_all()
-    # Ensure seed users exist
-    seed_demo_users()
+    try:
+        db.create_all()
+        seed_demo_users()
+    except Exception as e:
+        print(f"[WARN] DB init failed: {e}")
 
 def get_current_user():
     user_id = session.get('user_id')
