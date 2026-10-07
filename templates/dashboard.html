@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaWorks CRM - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<nav class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <span class="font-bold text-xl text-blue-600">NovaWorks CRM</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-700">Logged in as: <strong>{{ user.name }} ({{ user.role }})</strong></span>
+                <a href="/logout" class="text-red-600 hover:text-red-800 font-semibold">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-4 py-8">
+    
+    {% if user.role == 'ADMIN' %}
+    <!-- ADMIN SECTION: Paste Transcript -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-2xl font-bold mb-4">Create from Transcript</h2>
+        <form id="transcriptForm">
+            <textarea id="transcript" rows="6" class="w-full border rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Paste meeting transcript here..."></textarea>
+            <div class="mt-4 flex items-center">
+                <button type="button" onclick="submitTranscript()" id="submitBtn" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 font-bold">Extract Projects & Tasks</button>
+                <span id="loading" class="ml-4 text-gray-600 hidden">Processing with AI... please wait.</span>
+            </div>
+            <div id="resultMsg" class="mt-4 font-bold hidden"></div>
+        </form>
+    </div>
+    {% endif %}
+
+    <!-- PROJECTS VIEW (Admin & Manager) -->
+    {% if user.role in ['ADMIN', 'MANAGER'] %}
+    <h2 class="text-2xl font-bold mb-4">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {% for project in projects %}
+        <a href="/project/{{ project.id }}" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <h3 class="text-xl font-bold text-gray-800">{{ project.name }}</h3>
+            <p class="text-gray-600 mt-2">Client: {{ project.client_name }}</p>
+            <p class="text-gray-600">Deadline: <span class="font-semibold">{{ project.deadline }}</span></p>
+        </a>
+        {% else %}
+        <p class="text-gray-500">No projects found.</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- TASKS VIEW (Agent) -->
+    {% if user.role == 'AGENT' %}
+    <h2 class="text-2xl font-bold mb-4">My Assigned Tasks</h2>
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Task Title</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Deadline</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Est. Hours</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for task in tasks %}
+                <tr>
+                    <td class="px-6 py-4">
+                        {% for p in projects if p.id == task.project_id %}
+                            <a href="/project/{{ p.id }}" class="text-blue-600 hover:underline">{{ p.name }}</a>
+                        {% endfor %}
+                    </td>
+                    <td class="px-6 py-4">{{ task.title }}</td>
+                    <td class="px-6 py-4 font-semibold">{{ task.deadline }}</td>
+                    <td class="px-6 py-4">{{ task.estimated_hours }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="4" class="px-6 py-4 text-gray-500 text-center">No tasks assigned.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+    
+    <!-- TEAM DIRECTORY -->
+    <h2 class="text-2xl font-bold mt-12 mb-4">Team Directory</h2>
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Specialization</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for t in team %}
+                <tr>
+                    <td class="px-6 py-4 font-medium">{{ t.name }}</td>
+                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs rounded-full bg-gray-200">{{ t.role }}</span></td>
+                    <td class="px-6 py-4 text-gray-600">{{ t.specialization }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function submitTranscript() {
+        const text = document.getElementById('transcript').value;
+        const btn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const msg = document.getElementById('resultMsg');
+        
+        if (!text) return alert("Paste a transcript first!");
+        
+        btn.disabled = true;
+        btn.classList.add('opacity-50');
+        loading.classList.remove('hidden');
+        msg.classList.add('hidden');
+        
+        let formData = new FormData();
+        formData.append('transcript', text);
+        
+        fetch('/api/transcript', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                msg.textContent = "Successfully extracted and saved! Refreshing...";
+                msg.classList.remove('text-red-600');
+                msg.classList.add('text-green-600', 'block');
+                setTimeout(() => window.location.reload(), 1500);
+            } else {
+                throw new Error(data.error);
+            }
+        })
+        .catch(err => {
+            msg.textContent = "Error: " + err.message;
+            msg.classList.remove('text-green-600');
+            msg.classList.add('text-red-600', 'block');
+            btn.disabled = false;
+            btn.classList.remove('opacity-50');
+            loading.classList.add('hidden');
+        });
+    }
+</script>
+</body>
+</html>
