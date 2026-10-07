@@ -98,6 +98,21 @@ def project_detail(project_id):
     manager = User.query.get(project.manager_id)
     
     return render_template('project.html', project=project, tasks=tasks, manager=manager, user=user)
+@app.route('/my_tasks')
+def my_tasks():
+    user = get_current_user()
+    if not user:
+        return redirect(url_for('login'))
+        
+    tasks = Task.query.filter_by(assignee_id=user.id).all() if user.role == 'AGENT' else []
+    return render_template('my_tasks.html', user=user, tasks=tasks)
+
+@app.route('/analytics')
+def analytics():
+    user = get_current_user()
+    if not user:
+        return redirect(url_for('login'))
+    return render_template('analytics.html', user=user)
 
 @app.route('/api/transcript', methods=['POST'])
 def process_transcript():
