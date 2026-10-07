@@ -128,7 +128,8 @@ def process_transcript():
     4. TASKS MUST BE SEPARATE: Do not combine Ali's two frontend tasks. Do not combine Hamza's API tasks across projects.
     5. NO MANAGER TASKS: Only AGENTs get tasks.
     6. DATE FORMAT: YYYY-MM-DD. (Assume year is 2026).
-    
+    7. USE EXACT IDs: For `managerId` and `assigneeId`, you MUST use the exact UUID string from the `id` field in the directory below. DO NOT use the person's name.
+
     COMPANY DIRECTORY:
     {json.dumps(directory, indent=2)}
     
@@ -182,11 +183,11 @@ def process_transcript():
         try:
             for p in ai_json.get('projects', []):
                 project = Project(
-                    name=p['name'],
-                    client_name=p['clientName'],
+                    name=p.get('name', 'Untitled Project'),
+                    client_name=p.get('clientName', 'Unknown Client'),
                     description=p.get('description', ''),
-                    manager_id=p['managerId'],
-                    deadline=p['deadline']
+                    manager_id=p.get('managerId') or user.id,
+                    deadline=p.get('deadline', '2026-12-31')
                 )
                 db.session.add(project)
                 db.session.flush() # get ID
@@ -194,21 +195,21 @@ def process_transcript():
                 for t in p.get('tasks', []):
                     task = Task(
                         project_id=project.id,
-                        title=t['title'],
+                        title=t.get('title', 'Untitled Task'),
                         description=t.get('description', ''),
-                        assignee_id=t['assigneeId'],
-                        deadline=t['deadline'],
-                        estimated_hours=float(t['estimatedHours'])
+                        assignee_id=t.get('assigneeId') or user.id,
+                        deadline=t.get('deadline', '2026-12-31'),
+                        estimated_hours=float(t.get('estimatedHours', 0))
                     )
                     db.session.add(task)
             db.session.commit()
-            return {"success": True}
+            return redirect(url_for('dashboard'))
         except Exception as e:
             db.session.rollback()
-            return {"error": f"Database error: {str(e)}"}, 500
+            return f"Database error: {str(e)}", 500
             
     except Exception as e:
-        return {"error": f"AI Parsing error: {str(e)}"}, 500
+        return f"AI Parsing error: {str(e)}", 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
