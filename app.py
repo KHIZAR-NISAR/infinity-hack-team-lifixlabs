@@ -33,14 +33,17 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
         
-        user = User.query.filter_by(email=email).first()
-        # In a real app we check password_hash. For this hackathon, just allow if email exists and password is Demo123!
-        if user and password == "Demo123!":
-            session['user_id'] = user.id
-            session['role'] = user.role
-            return redirect(url_for('dashboard'))
-        else:
-            return render_template('login.html', error="Invalid credentials")
+        try:
+            user = User.query.filter_by(email=email).first()
+            if user and password == "Demo123!":
+                session['user_id'] = user.id
+                session['role'] = user.role
+                return redirect(url_for('dashboard'))
+            else:
+                return render_template('login.html', error="Invalid credentials")
+        except Exception as e:
+            error_msg = f"Database Error: {str(e)}"
+            return render_template('login.html', error=error_msg)
             
     return render_template('login.html')
 
