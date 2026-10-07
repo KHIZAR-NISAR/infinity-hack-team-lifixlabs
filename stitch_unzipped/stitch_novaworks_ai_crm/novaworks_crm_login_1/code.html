@@ -13,13 +13,12 @@
 <p class="text-body-sm text-on-surface-variant">Enter your workspace credentials to continue</p>
 </div>
 <!-- Login Form -->
-<form method="POST" action="/" class="w-full flex flex-col gap-space-md">
-{% if error %}<div class="bg-error-container text-on-error-container p-2 rounded-xl text-center">{{ error }}</div>{% endif %}
+<form class="w-full flex flex-col gap-space-md" onsubmit="event.preventDefault();">
 <div class="flex flex-col gap-space-xs">
 <label class="text-label-md font-label-md text-on-surface-variant">Work Email</label>
 <div class="flex items-center w-full bg-surface-container-low rounded-xl px-space-md py-space-sm border border-outline-variant/40 focus-within:border-primary transition-colors">
 <span class="material-symbols-outlined text-outline text-[20px] mr-space-sm">mail</span>
-<input name="email" class="w-full bg-transparent border-none outline-none text-body-md text-on-surface placeholder:text-outline" placeholder="name@novaworks.tech" required="" type="email"/>
+<input class="w-full bg-transparent border-none outline-none text-body-md text-on-surface placeholder:text-outline" placeholder="name@novaworks.tech" required="" type="email5"/>
 </div>
 </div>
 <div class="flex flex-col gap-space-xs">
@@ -29,7 +28,7 @@
 </div>
 <div class="flex items-center w-full bg-surface-container-low rounded-xl px-space-md py-space-sm border border-outline-variant/40 focus-within:border-primary transition-colors">
 <span class="material-symbols-outlined text-outline text-[20px] mr-space-sm">lock</span>
-<input name="password" class="w-full bg-transparent border-none outline-none text-body-md text-on-surface placeholder:text-outline" placeholder="••••••••••••" required="" type="password"/>
+<input class="w-full bg-transparent border-none outline-none text-body-md text-on-surface placeholder:text-outline" placeholder="••••••••••••" required="" type="password"/>
 </div>
 </div>
 <button class="mt-space-md w-full bg-primary hover:bg-primary/90 text-on-primary font-headline-xs text-headline-xs py-space-md rounded-xl transition-all shadow-sm flex items-center justify-center gap-space-sm active:scale-[0.99]" type="submit">

@@ -15,16 +15,15 @@
 <p class="text-body-lg text-on-surface-variant mb-space-lg">
         Paste raw meeting notes, client emails, or project briefs below. Our AI model will automatically extract milestones, assign resources, and structure deliverables.
       </p>
-<form method="POST" action="{{ url_for('process_transcript') }}">
 <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md focus-within:ring-2 focus-within:ring-primary/20 transition-all">
-<textarea name="transcript" class="w-full bg-transparent text-on-surface placeholder:text-outline outline-none resize-none text-body-md" placeholder="Paste transcript or meeting minutes here... (e.g., 'Client Acme Corp wants a full brand redesign by Q3, managed by Sarah Jenkins...')" rows="5" required></textarea>
+<textarea class="w-full bg-transparent text-on-surface placeholder:text-outline outline-none resize-none text-body-md" placeholder="Paste transcript or meeting minutes here... (e.g., 'Client Acme Corp wants a full brand redesign by Q3, managed by Sarah Jenkins...')" rows="5"></textarea>
 <div class="flex items-center justify-between pt-space-md mt-space-sm border-t border-surface-container">
 <div class="flex items-center gap-space-md">
-<button type="button" class="flex items-center gap-space-xs text-body-sm text-on-surface-variant hover:text-primary transition-colors">
+<button class="flex items-center gap-space-xs text-body-sm text-on-surface-variant hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-[18px]">attach_file</span>
               Attach document
             </button>
-<button type="button" class="flex items-center gap-space-xs text-body-sm text-on-surface-variant hover:text-primary transition-colors">
+<button class="flex items-center gap-space-xs text-body-sm text-on-surface-variant hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-[18px]">mic</span>
               Record audio
             </button>
@@ -37,12 +36,11 @@
 <span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
 <span>Avg. generation time: <strong>4.2 seconds</strong></span>
 </div>
-<button type="submit" class="flex items-center gap-space-sm bg-primary hover:bg-primary/90 text-on-primary px-space-xl py-space-md rounded-xl font-semibold text-body-md shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]">
+<button class="flex items-center gap-space-sm bg-primary hover:bg-primary/90 text-on-primary px-space-xl py-space-md rounded-xl font-semibold text-body-md shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]">
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
           Generate Projects with AI
         </button>
 </div>
-</form>
 </div>
 </div>
 <div class="flex items-center justify-between mb-space-lg">
@@ -62,35 +60,149 @@
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
-{% for project in projects %}
-<a href="{{ url_for('project_details', project_id=project.id) }}" class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group cursor-pointer block">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
 <div>
 <div class="flex items-start justify-between mb-space-md">
-<span class="text-label-sm font-label-sm px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">{{ project.client_name }}</span>
-<span class="text-label-sm text-outline">ID-{{ project.id }}</span>
+<span class="text-label-sm font-label-sm px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Acme Corp</span>
+<span class="text-label-sm text-outline">ID-8921</span>
 </div>
-<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs group-hover:text-primary transition-colors">{{ project.title }}</h3>
-<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-space-lg">{{ project.description }}</p>
+<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs group-hover:text-primary transition-colors">Global E-Commerce Redesign</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-space-lg">Comprehensive storefront overhaul focusing on localized checkout flows and micro-animations.</p>
 </div>
 <div>
 <div class="flex items-center justify-between pt-space-md border-t border-surface-container">
 <div class="flex items-center gap-space-sm">
 <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-semibold text-body-sm">
-              {{ current_user.username[0] | upper }}
+              SJ
             </div>
 <div>
-<p class="text-body-sm font-semibold text-on-surface">{{ current_user.username }}</p>
-<p class="text-label-sm text-outline">{{ current_user.role }}</p>
+<p class="text-body-sm font-semibold text-on-surface">Sarah Jenkins</p>
+<p class="text-label-sm text-outline">Project Manager</p>
 </div>
 </div>
-<span class="px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-medium">Active</span>
+<span class="px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-medium">Due in 4 days</span>
 </div>
 </div>
-</a>
-{% else %}
-<div class="col-span-full py-10 text-center text-on-surface-variant">
-  <p>No projects found. Add your first transcript above!</p>
 </div>
-{% endfor %}
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between mb-space-md">
+<span class="text-label-sm font-label-sm px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Stellaris AI</span>
+<span class="text-label-sm text-outline">ID-8922</span>
+</div>
+<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs group-hover:text-primary transition-colors">Neural Net Visualization Engine</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-space-lg">Real-time WebGL rendering pipeline for multi-layer perceptron training weights and biases.</p>
+</div>
+<div>
+<div class="flex items-center justify-between pt-space-md border-t border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-semibold text-body-sm">
+              MK
+            </div>
+<div>
+<p class="text-body-sm font-semibold text-on-surface">Marcus Vance</p>
+<p class="text-label-sm text-outline">Lead Engineer</p>
+</div>
+</div>
+<span class="px-space-sm py-1 bg-error-container text-on-error-container rounded-full text-label-sm font-medium">Tomorrow</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between mb-space-md">
+<span class="text-label-sm font-label-sm px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Vanguard</span>
+<span class="text-label-sm text-outline">ID-8923</span>
+</div>
+<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs group-hover:text-primary transition-colors">Fintech Mobile App Alpha</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-space-lg">Secure biometric authentication onboarding and portfolio asset allocation dashboard.</p>
+</div>
+<div>
+<div class="flex items-center justify-between pt-space-md border-t border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-semibold text-body-sm">
+              EL
+            </div>
+<div>
+<p class="text-body-sm font-semibold text-on-surface">Elena Rostova</p>
+<p class="text-label-sm text-outline">Product Lead</p>
+</div>
+</div>
+<span class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant rounded-full text-label-sm font-medium">Next Week</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between mb-space-md">
+<span class="text-label-sm font-label-sm px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Helix Bio</span>
+<span class="text-label-sm text-outline">ID-8924</span>
+</div>
+<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs group-hover:text-primary transition-colors">Genomics Research Portal</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-space-lg">High-throughput DNA sequence alignment viewer with collaborative annotation tools.</p>
+</div>
+<div>
+<div class="flex items-center justify-between pt-space-md border-t border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-semibold text-body-sm">
+              DT
+            </div>
+<div>
+<p class="text-body-sm font-semibold text-on-surface">David Thorne</p>
+<p class="text-label-sm text-outline">Director</p>
+</div>
+</div>
+<span class="px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-medium">In 12 days</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between mb-space-md">
+<span class="text-label-sm font-label-sm px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Quantum</span>
+<span class="text-label-sm text-outline">ID-8925</span>
+</div>
+<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs group-hover:text-primary transition-colors">Cloud Infrastructure Migration</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-space-lg">Zero-downtime container orchestration shift from legacy bare-metal to multi-region k8s.</p>
+</div>
+<div>
+<div class="flex items-center justify-between pt-space-md border-t border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-on-tertiary-fixed-variant text-on-primary flex items-center justify-center font-semibold text-body-sm">
+              AC
+            </div>
+<div>
+<p class="text-body-sm font-semibold text-on-surface">Alice Chen</p>
+<p class="text-label-sm text-outline">DevOps Lead</p>
+</div>
+</div>
+<span class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant rounded-full text-label-sm font-medium">Next Month</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between mb-space-md">
+<span class="text-label-sm font-label-sm px-space-sm py-1 bg-secondary-container text-on-secondary-container rounded-full">Nexus Media</span>
+<span class="text-label-sm text-outline">ID-8926</span>
+</div>
+<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs group-hover:text-primary transition-colors">Streaming Content Recommendation</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-space-lg">Collaborative filtering model update to boost VOD retention metrics by 15%.</p>
+</div>
+<div>
+<div class="flex items-center justify-between pt-space-md border-t border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-semibold text-body-sm">
+              RJ
+            </div>
+<div>
+<p class="text-body-sm font-semibold text-on-surface">Ryan Johnson</p>
+<p class="text-label-sm text-outline">Data Scientist</p>
+</div>
+</div>
+<span class="px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-medium">Due in 3 days</span>
+</div>
+</div>
+</div>
 </div>
 </div></main></div></body></html>

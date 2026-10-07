@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"primary-container":"#2170e4","on-tertiary-fixed":"#131b2e","on-tertiary-fixed-variant":"#3f465c","surface-variant":"#e0e3e5","on-primary-container":"#fefcff","tertiary-fixed":"#dae2fd","on-secondary-fixed":"#0b1c30","on-secondary-fixed-variant":"#38485d","error-container":"#ffdad6","on-background":"#191c1e","secondary-fixed":"#d3e4fe","error":"#ba1a1a","on-secondary-container":"#54647a","surface-container-highest":"#e0e3e5","on-primary-fixed-variant":"#004395","tertiary":"#545c72","surface-container-high":"#e6e8ea","inverse-primary":"#adc6ff","primary":"#0058be","secondary":"#505f76","tertiary-container":"#6c748b","on-tertiary-container":"#fefcff","surface-tint":"#005ac2","on-secondary":"#ffffff","on-surface":"#191c1e","surface-container-lowest":"#ffffff","primary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#bec6e0","surface-container":"#eceef0","on-primary":"#ffffff","on-surface-variant":"#424754","inverse-on-surface":"#eff1f3","outline":"#727785","outline-variant":"#c2c6d6","secondary-fixed-dim":"#b7c8e1","primary-fixed":"#d8e2ff","on-tertiary":"#ffffff","surface-bright":"#f7f9fb","on-error":"#ffffff","background":"#f7f9fb","on-error-container":"#93000a","secondary-container":"#d0e1fb","surface-container-low":"#f2f4f6","surface":"#f7f9fb","on-primary-fixed":"#001a42","surface-dim":"#d8dadc","inverse-surface":"#2d3133"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1.5rem","space-xl":"2.5rem","margin":"2rem","space-xs":"0.25rem","space-sm":"0.5rem","space-md":"1rem","gutter":"1.5rem"},"fontFamily":{"body-sm":["Inter"],"headline-xs":["Inter"],"headline-xl":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"label-sm":["Inter"]},"fontSize":{"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xs":["16px",{"lineHeight":"24px","fontWeight":"600"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col pt-space-xl pb-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><img alt="NovaWorks Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1TyuxAv4BmhgnDqfa626hmJRhwZn_D_RUhqLd4yocSlcMdsfxZZ2Kuu65fcFe36453YM_paEyF0EIcScvVcIrIr90Afp8CDxwyAvCe2CcMd8n53GcP6WjNJMp_GXvPm3XQz6VPfwXetch4aHZGtZFWP2s6Scl87SYwaCIShOEqmmycCpt5_-MX2NFL147zea12NhiIdoFVX4kxVdyjFwuy92Sm2BJv1nrFlFLkVpk"/><span class="text-headline-xs font-headline-xs tracking-tight text-on-surface">NovaWorks</span></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined mr-space-md text-[20px]">dashboard</span>Admin Dashboard</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="project-details" href="#"><span class="material-symbols-outlined mr-space-md text-[20px]">folder</span>Project Details</a><a aria-current="page" class="flex items-center px-space-md py-space-sm rounded-xl transition-all bg-primary-container text-on-primary-container font-semibold" data-path="my-tasks" href="#"><span class="material-symbols-outlined mr-space-md text-[20px]">task</span>My Tasks</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="analytics" href="#"><span class="material-symbols-outlined mr-space-md text-[20px]">analytics</span>Analytics</a><a class="flex items-center px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined mr-space-md text-[20px]">settings</span>Settings</a></nav></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md bg-surface-container-low px-space-md py-space-xs rounded-xl"><span class="material-symbols-outlined text-outline text-[20px]">search</span><input class="bg-transparent border-none outline-none w-full text-on-surface placeholder:text-outline text-body-md" placeholder="Search anything..." type="text"/></div><div class="flex items-center gap-space-md"><button class="p-space-xs rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen p-space-xl"><div class="flex flex-col w-full">
+<!-- Top Overview / Welcome Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-label-sm uppercase tracking-wider text-outline mb-space-xs">
+<span>Workspace</span>
+<span>/</span>
+<span class="text-on-surface">Developer View</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface">My Assigned Tasks</h1>
+</div>
+<!-- Quick stats / filters row -->
+<div class="flex items-center gap-space-md">
+<div class="bg-surface-container-low px-space-md py-space-sm rounded-xl flex items-center gap-space-md shadow-sm">
+<div class="flex flex-col">
+<span class="text-label-sm text-outline">Active Load</span>
+<span class="text-headline-xs font-headline-xs text-on-surface">38.5 hrs</span>
+</div>
+<div class="w-[1px] h-8 bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="text-label-sm text-outline">Pending Tasks</span>
+<span class="text-headline-xs font-headline-xs text-primary">6 items</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="bg-primary hover:bg-primary/90 text-on-primary px-space-md py-space-sm rounded-xl text-body-md font-medium transition-all shadow-sm flex items-center gap-space-xs" onclick="openNewTaskModal()">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Task</span>
+</button>
+</div>
+</div>
+<!-- Filter & Search Toolbar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-xl shadow-sm">
+<button class="px-space-md py-space-xs rounded-lg bg-surface text-on-surface text-body-sm font-medium shadow-sm transition-all">All Tasks (6)</button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface text-body-sm transition-all">In Progress (3)</button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface text-body-sm transition-all">Backlog (2)</button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface text-body-sm transition-all">Review (1)</button>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface text-body-sm px-space-md py-space-sm rounded-xl outline-none cursor-pointer shadow-sm appearance-none pr-8" id="project-filter" onchange="filterTable()">
+<option value="all">All Projects</option>
+<option value="Nexus Core API">Nexus Core API</option>
+<option value="Data Pipeline">Data Pipeline</option>
+<option value="Design System">Design System</option>
+<option value="Auth Service">Auth Service</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface text-body-sm px-space-md py-space-sm rounded-xl outline-none cursor-pointer shadow-sm appearance-none pr-8" id="sort-filter" onchange="sortTable()">
+<option value="deadline">Sort by Deadline</option>
+<option value="hours">Sort by Hours</option>
+<option value="title">Sort by Title</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">sort</span>
+</div>
+</div>
+</div>
+<!-- Main Tasks Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-space-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="tasks-table">
+<thead>
+<tr class="bg-surface-container-low/50 text-label-md text-outline uppercase tracking-wider">
+<th class="py-space-md px-space-lg font-medium w-10">
+<input class="rounded text-primary focus:ring-0 cursor-pointer" onclick="toggleSelectAll(this)" type="checkbox"/>
+</th>
+<th class="py-space-md px-space-lg font-medium">Task Title</th>
+<th class="py-space-md px-space-lg font-medium">Project Name</th>
+<th class="py-space-md px-space-lg font-medium">Status</th>
+<th class="py-space-md px-space-lg font-medium">Deadline</th>
+<th class="py-space-md px-space-lg font-medium text-right">Est. Hours</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group" data-deadline="2023-11-15" data-hours="8" data-project="Nexus Core API">
+<td class="py-space-md px-space-lg">
+<input class="rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-lg font-medium flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">api</span>
+<span>GraphQL endpoint optimization & rate limiting</span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Nexus Core API</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                In Progress
+              </span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-mono text-body-sm">Nov 15, 2023</td>
+<td class="py-space-md px-space-lg text-right font-mono text-body-sm font-medium">8 hrs</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group" data-deadline="2023-11-18" data-hours="12" data-project="Data Pipeline">
+<td class="py-space-md px-space-lg">
+<input class="rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-lg font-medium flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">database</span>
+<span>PostgreSQL B-Tree & GIN index migrations</span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Data Pipeline</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-medium bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                In Progress
+              </span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-mono text-body-sm">Nov 18, 2023</td>
+<td class="py-space-md px-space-lg text-right font-mono text-body-sm font-medium">12 hrs</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group" data-deadline="2023-11-20" data-hours="6" data-project="Design System">
+<td class="py-space-md px-space-lg">
+<input class="rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-lg font-medium flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px]">palette</span>
+<span>Refine token variables & high-contrast button states</span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Design System</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-medium bg-secondary-container text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Review
+              </span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-mono text-body-sm">Nov 20, 2023</td>
+<td class="py-space-md px-space-lg text-right font-mono text-body-sm font-medium">6 hrs</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group" data-deadline="2023-11-25" data-hours="4.5" data-project="Auth Service">
+<td class="py-space-md px-space-lg">
+<input class="rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-lg font-medium flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">lock</span>
+<span>OAuth2 refresh token rotation mechanism</span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Auth Service</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-medium bg-surface-container-high text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Backlog
+              </span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-mono text-body-sm">Nov 25, 2023</td>
+<td class="py-space-md px-space-lg text-right font-mono text-body-sm font-medium">4.5 hrs</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group" data-deadline="2023-11-28" data-hours="8" data-project="Nexus Core API">
+<td class="py-space-md px-space-lg">
+<input class="rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-lg font-medium flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">description</span>
+<span>Swagger/OpenAPI automated doc generator pipeline</span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Nexus Core API</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-medium bg-surface-container-high text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Backlog
+              </span>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-mono text-body-sm">Nov 28, 2023</td>
+<td class="py-space-md px-space-lg text-right font-mono text-body-sm font-medium">8 hrs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Summary -->
+<div class="px-space-lg py-space-md bg-surface-container-low/30 border-t border-surface-container-low flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Showing 5 of 6 assigned items</span>
+<div class="flex items-center gap-space-md">
+<span>Total Estimated Work: <strong class="text-on-surface font-mono">38.5 hrs</strong></span>
+</div>
+</div>
+</div>
+<!-- Bottom Visual Analytics Split Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Velocity Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="text-label-md text-outline uppercase tracking-wider">Weekly Velocity</span>
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-space-xs">32.4 hrs completed</h3>
+<p class="text-body-sm text-on-surface-variant">+14% compared to previous sprint average.</p>
+</div>
+<div class="mt-space-lg pt-space-md border-t border-surface-container-low flex items-end gap-2 h-20">
+<div class="flex-1 bg-primary/20 rounded-t h-[40%] flex items-end justify-center pb-1 text-[10px] font-mono text-primary">M</div>
+<div class="flex-1 bg-primary/40 rounded-t h-[70%] flex items-end justify-center pb-1 text-[10px] font-mono text-primary">T</div>
+<div class="flex-1 bg-primary rounded-t h-[95%] flex items-end justify-center pb-1 text-[10px] font-mono text-on-primary">W</div>
+<div class="flex-1 bg-primary/60 rounded-t h-[80%] flex items-end justify-center pb-1 text-[10px] font-mono text-on-primary">T</div>
+<div class="flex-1 bg-primary/30 rounded-t h-[50%] flex items-end justify-center pb-1 text-[10px] font-mono text-primary">F</div>
+</div>
+</div>
+<!-- Project Breakdown Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="text-label-md text-outline uppercase tracking-wider">Workload Distribution</span>
+<span class="material-symbols-outlined text-tertiary">pie_chart</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-space-md">Allocation by Project</h3>
+<div class="space-y-space-sm">
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="text-on-surface">Nexus Core API</span>
+<span class="font-mono text-on-surface-variant">42%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="text-on-surface">Data Pipeline</span>
+<span class="font-mono text-on-surface-variant">31%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 31%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="text-on-surface">Design System & Auth</span>
+<span class="font-mono text-on-surface-variant">27%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 27%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Focus Timer / Productivity Mood Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between" data-alt="A subtle abstract minimalist gradient background with soft slate and cool blue tones, designed for a high-end productivity SaaS workspace dashboard widget." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7TrUFoc9WnL9JsIzBBnPZfsaxltT90UNbDL2ApuEGafZAifRIPC8nviwtB_3d92b3EPei3rXaocs6XDYgocIKLsHgEVWZw0gIoZkvM0V0bt0_QuSPF1HCk6ptJKj_kY4_SzQ6BMb6DQA0FmHdpvynvteZDWBqxc523rwhaiIPDKvCYWzVMD5Abj9m9KwOj2yDicmxm1Rf6TMyNEkCbOePbReOQs2GbNl5Z2tGtHqH'); background-size: cover; background-position: center;">
+<div class="bg-surface/90 backdrop-blur-md p-space-md rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="text-label-md text-primary font-medium uppercase tracking-wider">Active Sprint Focus</span>
+<span class="material-symbols-outlined text-primary text-[18px]">timer</span>
+</div>
+<h3 class="text-headline-xs font-headline-xs text-on-surface mb-space-xs">Sprint Cycle #42</h3>
+<p class="text-body-sm text-on-surface-variant">All tasks are currently aligned with the November release milestone objectives.</p>
+</div>
+<div class="bg-surface/90 backdrop-blur-md px-space-md py-space-sm rounded-xl shadow-sm flex items-center justify-between mt-space-md">
+<span class="text-body-sm font-medium text-on-surface">Review Milestone</span>
+<span class="text-label-sm font-mono bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full">4 Days Left</span>
+</div>
+</div>
+</div>
+<!-- Interactive Demo Script -->
+<script>
+    function filterTable() {
+      const selected = document.getElementById('project-filter').value;
+      const rows = document.querySelectorAll('#tasks-table tbody tr');
+      rows.forEach(row => {
+        const project = row.getAttribute('data-project');
+        if (selected === 'all' || project === selected) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    function sortTable() {
+      const sortBy = document.getElementById('sort-filter').value;
+      const tbody = document.querySelector('#tasks-table tbody');
+      const rowsArray = Array.from(tbody.querySelectorAll('tr'));
+
+      rowsArray.sort((a, b) => {
+        if (sortBy === 'deadline') {
+          return a.getAttribute('data-deadline').localeCompare(b.getAttribute('data-deadline'));
+        } else if (sortBy === 'hours') {
+          return parseFloat(b.getAttribute('data-hours')) - parseFloat(a.getAttribute('data-hours'));
+        } else if (sortBy === 'title') {
+          return a.querySelector('td:nth-child(2)').textContent.trim().localeCompare(b.querySelector('td:nth-child(2)').textContent.trim());
+        }
+      });
+
+      rowsArray.forEach(row => tbody.appendChild(row));
+    }
+
+    function toggleSelectAll(master) {
+      const checkboxes = document.querySelectorAll('#tasks-table tbody input[type="checkbox"]');
+      checkboxes.forEach(cb => cb.checked = master.checked);
+    }
+
+    function openNewTaskModal() {
+      alert('New Task creation flow triggered. In production, this opens a minimalist slide-over panel.');
+    }
+  </script>
+</div></main></div></body></html>
