@@ -1,7 +1,7 @@
 import os
 import json
 import requests
-from flask import Flask, render_template, request, redirect, session, url_for, flash
+from flask import Flask, render_template, request, redirect, session, url_for, flash, jsonify
 from models import db, User, Project, Task, seed_demo_users
 from dotenv import load_dotenv
 
@@ -218,13 +218,13 @@ def process_transcript():
                     )
                     db.session.add(task)
             db.session.commit()
-            return redirect(url_for('dashboard'))
+            return jsonify({"success": True})
         except Exception as e:
             db.session.rollback()
-            return f"Database error: {str(e)}", 500
+            return jsonify({"error": f"Database error: {str(e)}"}), 500
             
     except Exception as e:
-        return f"AI Parsing error: {str(e)}", 500
+        return jsonify({"error": f"AI Parsing error: {str(e)}"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
